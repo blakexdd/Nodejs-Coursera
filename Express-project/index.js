@@ -4,6 +4,17 @@ const body_parser = require('body-parser');
 const dishesRouter = require('./routes/dishesRouter');
 const leadersRouter = require('./routes/leadersRouter');
 const promotionsRouter = require('./routes/promotionsRouter');
+const mongoose = require('mongoose');
+const assert = require('assert');
+
+const url = 'mongodb://localhost:27017/';
+const connect = mongoose.connect(url);
+
+connect.then((db) => {
+    console.log("Connected correctly to the server");
+}, (err) => {
+    console.log(err);
+})
 
 const app = express();
 
